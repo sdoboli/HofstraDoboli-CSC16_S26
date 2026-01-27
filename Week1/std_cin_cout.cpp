@@ -23,7 +23,7 @@ int main() {
     // name = input("Enter your name: ")
 
     // C++:
-    string name;
+    string name; // name is a string object
     cout << "Enter your name: ";
     cin >> name;   // reads one word (stops at whitespace)
 

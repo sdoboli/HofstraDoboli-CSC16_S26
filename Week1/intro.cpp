@@ -18,8 +18,9 @@ int main() {
     srand(time(0));   // seed random number generator
 
     // int randomNum = rand() % 10 + 1;   // TODO: uncomment and use
-
-
+    int randomNum =  rand() % 6 + 1; ; //declare all variables before you use them
+   // generates a random number between 1 and 6
+    cout << "Random number between 1 and 6: " << randomNum << endl;
     // ==============================================
     // PRIMITIVE DATA TYPES
     // ==============================================
@@ -31,13 +32,14 @@ int main() {
     // isDone = False
 
     // C++ (types must be declared):
-    int x = 5;
-    double y = 3.14;
-    char letter = 'A';
+    int x = 5;  // short int 
+    double y = 3.14; // float 
+    char letter = 'A'; // store one character (string in c++ is a class)
     bool isDone = false;
 
     // cout << x << " " << y << endl;   // output
 
+    // logical operators: && (and), || (or), ! (not)
 
     // ==============================================
     // IF STATEMENTS
@@ -51,16 +53,17 @@ int main() {
     // else:
     //     print("Negative")
 
-    // C++:
-    if (x > 0) {
-        // cout << "Positive" << endl;
+    // C++
+    if (x > 0){
+        cout << "Positive" << endl;
     }
     else if (x == 0) {
-        // cout << "Zero" << endl;
+        cout << "Zero" << endl;
+
     }
     else {
-        // cout << "Negative" << endl;
-    }
+        cout << "Negative" << endl;
+    } 
 
 
     // ==============================================
@@ -75,8 +78,8 @@ int main() {
 
     int count = 0;
     while (count < 5) {
-        // cout << count << endl;
-        // count++;   // TODO: update loop variable
+        cout << count << endl;
+        count++;   // increment count by 1 (c) or count-- (decrement by 1)
     }
 
 
@@ -90,9 +93,8 @@ int main() {
 
     // C++:
     for (int i = 0; i < 5; i++) {
-        // cout << i << endl;
+        cout << i << endl;
     }
-
 
     // ==============================================
     // COMMON PYTHON → C++ NOTES
@@ -103,6 +105,5 @@ int main() {
     // - Statements end with semicolons ;
     // - true / false are lowercase
     // - Use cout instead of print()
-
     return 0;
 }
