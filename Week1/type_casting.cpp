@@ -9,7 +9,7 @@ int main() {
     // IMPLICIT TYPE CASTING
     // ==========================================
 
-    int i = 10;
+    int    i = 10;
     double d = 3.5;
 
     // Mixed-type expression
@@ -17,10 +17,9 @@ int main() {
 
     cout << "Implicit casting (int + double)" << endl;
     cout << "Value: " << result1 << endl;
-    cout << "Size: " << sizeof(result1) << " bytes" << endl;
-    cout << "Type: " << typeid(result1).name() << endl;
+    cout << "Size: "  << sizeof(result1) << " bytes" << endl;
+    cout << "Type: "  << typeid(result1).name() << endl;
     cout << endl;
-
 
     // ==========================================
     // IMPLICIT CASTING WITH INTEGER DIVISION
@@ -29,7 +28,7 @@ int main() {
     int a = 7;
     int b = 2;
 
-    auto result2 = a / b;   // both int → int division
+    auto result2 = a / b;   // both int → int division 
 
     cout << "Integer division (int / int)" << endl;
     cout << "Value: " << result2 << endl;
@@ -66,6 +65,12 @@ int main() {
     cout << "Type: " << typeid(result4).name() << endl;
     cout << endl;
 
+    auto char_result4 = static_cast<char>(c + num); 
+    cout << "Explicit casting (char + int)" << endl;
+    cout << "Value: " << char_result4 << endl;
+    cout << "Size: " << sizeof(char_result4) << " bytes" << endl;
+    cout << "Type: " << typeid(char_result4).name() << endl;
+    cout << endl;
 
     // ==========================================
     // SUMMARY NOTES (for students)
