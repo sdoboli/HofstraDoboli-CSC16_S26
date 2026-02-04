@@ -94,7 +94,7 @@ int main() {
         // --------------------------------------------------
         while (!done){
 
-            cout << "Press any key to continue" << endl;
+            cout << "Press enter to continue" << endl;
             string cont;
             getline(cin,cont); // reads a string from the keyboard until user pressed new line
 
