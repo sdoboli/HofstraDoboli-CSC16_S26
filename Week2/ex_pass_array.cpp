@@ -5,9 +5,7 @@
           Compile and run the code
 */
 #include <iostream>
-
 using namespace std;
-
 
 int max_array(int array[], int size);
 

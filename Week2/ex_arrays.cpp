@@ -15,9 +15,11 @@ int main()
     cout << "Memory address of v2 " << &v2 << endl;
 
     cout << "\nArray item addresses: " << endl;
-    for (int i = -4; i < SIZE+2; i++)
+    for (int i = 0; i < SIZE; i++){
         cout << "my_array[" << i << "] Address = " << &my_array[i] << endl;
-        //my_array[i] = 0;
+        my_array[i] = 0; // initialize array items to 0
+        cout << "my_array[" << i << "] Value = "  << my_array[i] << endl;
+    }
     cout << endl;
 
     /*

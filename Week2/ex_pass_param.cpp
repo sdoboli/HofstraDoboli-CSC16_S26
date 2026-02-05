@@ -93,22 +93,27 @@ int main() {
 void primitiveByValue(int n) {
     // TODO:
     // 1. print the address of the parameter 'n' (use (void*)&n)
+    cout << "Address of n (parameter): " << (void*)&n << "\n";
+    cout << "Value of n (parameter): " << n << "\n";
     // 2. print the value of 'n'
-    // 3. change n (e.g., n = n + 10)
+    n += 5;
     // 4. print the changed value and return
+    cout << "Changed value of n (parameter): " << n << "\n";
     // Observe: address of 'n' should be different from address of 'a' in main
-    cout << "  [primitiveByValue] TODO: implement\n";
 }
 
 // primitive by reference: parameter is an ALIAS for caller variable
 void primitiveByReference(int &n /* , other refs */) {
     // TODO:
     // 1. print the address of parameter 'n' (should match &a from main)
+    cout << "Address of n (parameter): " << (void*)&n << "\n";
     // 2. print the value of 'n'
+    cout << "Value of n (parameter): " << n << "\n";
     // 3. modify n (e.g., n += 5)
+    n += 5;     
     // 4. print the changed value and return
+    cout << "Changed value of n (parameter): " << n << "\n";
     // Observe: change should be visible in main
-    cout << "  [primitiveByReference] TODO: implement\n";
 }
 
 // array passed as pointer (decays) -- behaves like pass-by-reference for the data
