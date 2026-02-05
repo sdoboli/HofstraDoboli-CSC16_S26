@@ -72,4 +72,6 @@ void showAddresses(int m[][COLS], int rows) {
        - Specifying the number of columns is important because it allows the compiler to correctly 
        calculate the memory offsets for accessing elements in the 2D array. Without this information, 
        the compiler would not know how to navigate the rows and columns of the array.
+       - memory address of array[row]= base + (row * COLS + col) * sizeof(int)
+
 */
