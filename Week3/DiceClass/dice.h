@@ -58,5 +58,5 @@ class Dice
     // friend ostream & operator<<(ostream &out, const Dice &d);
     // static function to get the count of Dice objects created
     // static int getCountDice();
-}
+};
 #endif // end of ifndef DICE
