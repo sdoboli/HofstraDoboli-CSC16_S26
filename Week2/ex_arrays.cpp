@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    const int SIZE = 10; // constant for array size
+    const int SIZE = 5; // constant for array size
 
     int v1 = 10; // declare an integer variable
     int my_array[SIZE]; // declare an array of integers
@@ -25,7 +25,8 @@ int main()
     /*
     Review Questions:
     1. What do you notice about the memory addresses of the array items?
-       - They are contiguous memory locations, each subsequent item is located at the next memory address.
+       - They are contiguous memory locations, each subsequent item is located at the next memory address 
+        given by the size of the array data type.
     2. What happens when you access array items outside the declared bounds (e.g., my_array[-4] or my_array[10])?
        - Accessing out-of-bounds array items leads to undefined behavior. It may read or write to memory locations that are not part of the array, potentially causing crashes or data corruption.
     3. Why is it important to stay within the bounds of an array?

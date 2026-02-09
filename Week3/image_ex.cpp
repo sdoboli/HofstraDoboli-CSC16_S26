@@ -110,7 +110,6 @@ void drawBox(int img[][COLS], int rows) {
 }
 
 
-
 void drawX(int img[][COLS], int rows) {
     // ----------------------------------------------
     // Draw an X across the image:
