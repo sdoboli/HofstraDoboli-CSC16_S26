@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const int ROWS = 2;
+const int ROWS = 2; // global constant variables
 const int COLS = 3;
 
 // Function prototype
@@ -53,9 +53,9 @@ void showAddresses(int m[][COLS], int rows) {
        They can be initialized using nested curly braces, e.g., 
        int matrix[2][3] = {{10, 20, 30}, {40, 50, 60}};
     2. HOw are 2D arrays stored in memory?
-       - 2D arrays are stored in a contiguous block of memory in row-major order, 
-       meaning that the elements of each row are stored in consecutive memory 
-       locations before moving to the next row.
+       - 2D arrays are stored in a contiguous block of memory on the stack 
+       in row-major order, meaning that the elements of each row are stored 
+       in consecutive memory locations before moving to the next row.
     3. How do you access elements in a 2D array?
        - Elements in a 2D array are accessed using two indices: the first index for the row 
        and the second index for the column, e.g., matrix[0][1] accesses the element in 
@@ -72,6 +72,6 @@ void showAddresses(int m[][COLS], int rows) {
        - Specifying the number of columns is important because it allows the compiler to correctly 
        calculate the memory offsets for accessing elements in the 2D array. Without this information, 
        the compiler would not know how to navigate the rows and columns of the array.
-       - memory address of array[row]= base + (row * COLS + col) * sizeof(int)
+       - memory address of array[row][col]= base_address + (row * COLS + col) * sizeof(int)
 
 */
