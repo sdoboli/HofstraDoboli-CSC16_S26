@@ -45,18 +45,24 @@ class Dice
     // Copy constructor = copies the data of an existing object into a new object
 	//Dice(const Dice &old); 
 	
-    // overload < operator
-    // bool operator<(const Dice &right) const;
-
-    // overload == operator
-    // bool operator==(const  Dice &right) const;
+    
 
 	// Assignment operator
 	// Dice & operator=(const Dice &right); // returns a reference to a dice object
 
-    // overload cout operator
-    // friend ostream & operator<<(ostream &out, const Dice &d);
     // static function to get the count of Dice objects created
     // static int getCountDice();
 };
 #endif // end of ifndef DICE
+
+// non-member functions
+
+// overload == operator
+bool operator==(const  Dice &right, const Dice &left);
+
+// overload < operator
+bool operator<(const Dice &right, const Dice &left);
+
+// overload cout operator
+//non-member function:  
+ostream& operator<<(ostream &out, const Dice &obj);
