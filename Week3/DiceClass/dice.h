@@ -66,3 +66,32 @@ bool operator<(const Dice &right, const Dice &left);
 // overload cout operator
 //non-member function:  
 ostream& operator<<(ostream &out, const Dice &obj);
+
+
+/*
+    Review Questions:
+    1. What is a header file?
+         - A header file in C++ is a file with a .h extension that contains declarations of functions, 
+         classes, and variables. It is used to separate the interface of a class 
+         or a set of functions from their implementation. 
+         Header files allow for code modularity and reusability by providing a way to share 
+         declarations across multiple source files.
+    2. What is the compiler directive #ifndef used for in a header file?
+         - The compiler directive #ifndef (which stands for "if not defined") is used in header files 
+         to prevent multiple inclusions of the same header file. 
+         - It checks if a specific macro (usually the name of the header file in uppercase) has 
+         already been defined. 
+         - If it has not been defined, the code between #ifndef and #endif is included, and the macro 
+         is defined. 
+         - If it has already been defined, the code is skipped, preventing multiple definitions of the 
+         same classes or functions.
+    3. What is a macro?
+            - A macro in C++ is a fragment of code that is given a name. 
+            - Whenever the name is used in the code, it is replaced by the contents of the macro.
+    4. What is the purpose of a class declaration in a header file?
+            - The purpose of a class declaration in a header file is to provide the interface for the class. 
+            - It defines the structure of the class, including its data members and member functions, 
+            without providing the implementation of the member functions. 
+            - This allows other source files to include the header file and use the class without needing 
+            to know the details of how the member functions are implemented.
+*/

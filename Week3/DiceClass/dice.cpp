@@ -1,5 +1,7 @@
 #include "dice.h" // include the header file
-	
+#include <cassert> // for assert function
+#include <iostream>
+
 // compile the Dice.cpp after you add each function
 // g++ -c Dice.cpp
 	
