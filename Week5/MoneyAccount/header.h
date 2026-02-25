@@ -12,7 +12,6 @@ class Money{
 	private:
         int dollars; // >= 0
 		int cents;   // >=0 and < 100	
-
 	public: 
 		Money (int new_dollars = 0, int new_cents = 0); // Money() - default values are used, Money(5,25) - both specific and default constructor
         Money(const Money &other); // copy constructor //Money m1(5,20); Money m2(m1); // m2 to be a copy of m1 - m2 is a new object, copy constructor is called. 
@@ -40,12 +39,15 @@ class Account
   	
     public: 
   		Account(int start_dollars = 0, int start_cents = 0); // both specific and default constructor
-        Account(const Account & other); // copy constructor
-  		Account & operator-=(const Money &amount); // withdraw
-  		Account & operator+=(const Money &amount); // deposit
+        // Account new_account(5); $5.00  // Account new_account; // 0.00, // Account new_account(5,10) $5.10
+        Account(const Account & other); // copy constructor // Account new_account(old_account);
+  		Account & operator-=(const Money &amount); // withdraw account -= Money(10,50);
+  		Account & operator+=(const Money &amount); // deposit  account += Money(50);
   		void transfer_from(Account &source, const Money &tr_amount);	
+        Money get_money() const {return money;};
+        string get_id() const {return account_id;};
 }; 
 bool operator<(const Account &left, const Account &right);
 bool operator==(const Account &left, const Account &right);	
-ostream & operator<<(ostream &out, const Money &m);
+ostream & operator<<(ostream &out, const Account &acct); // cout << my_account
 #endif

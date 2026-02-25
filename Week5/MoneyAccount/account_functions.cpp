@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <random>
 using namespace std;
 #include "header.h"
 
@@ -19,6 +20,15 @@ Account::Account(int start_dollars, int start_cents)
 {
     cout << "Account constructor" << endl;
     // add your code to set the random account_id
+    // random string of 10 digits (integers between 0 and 9)
+    account_id = "";
+    for (int i = 0; i < 10; i++){
+        // generate a random integer between 0 and 9
+        int digit   = rand() % 10; 
+        char ch_num = static_cast<char>('0' + digit);
+        // convert it to a character and add it to the end of account_id string
+        account_id.push_back(ch_num);
+    }
 }
 
 /*
@@ -26,12 +36,11 @@ Account::Account(int start_dollars, int start_cents)
     as the other object passed as a parameter
 */
 Account::Account(const Account & other)
-{
-
-}
+: money(other.money), account_id(other.account_id)
+{}
 
 /*	
-    withdraw(const Money &other) 
+    -=(const Money &other) 
     Purpose: subtract other money from the account that calls this function
     Processing: 
         Check that you have enough money in the calling account object
@@ -42,7 +51,13 @@ Account::Account(const Account & other)
       
 */
 Account & Account::operator-=(const Money &amount){
-     // add your code 
+    // if you have enough money in the Account object (> amount)
+    if (amount > money){
+        cout << "Sorry, you don't have enough money in the account to withdraw" << amount << endl;
+        return *this;
+    }
+    money -= amount;  // -= operator in the Money class
+    return *this;
 }
 
 /*
@@ -53,9 +68,9 @@ Account & Account::operator-=(const Money &amount){
             money object 
 */
 Account & Account::operator+=(const Money &amount){
-{
      // add your code 
-
+    money += amount; // += operator in the Money class
+    return *this;
 }
 
 /*				
@@ -66,22 +81,29 @@ Account & Account::operator+=(const Money &amount){
     Effect: a1 has m1 more money and a2 has m1 less money        
     Processing: use functions you already wrote in Account and Money
   	Precondition: check that enough money are available in object source
-                  (use  isBigger function in the Money class )
                   If this is not true display an Error message 
                  (do not use assert - you don't want the program to terminate). 
 */
 void Account::transfer_from(Account &source, const Money &tr_amount)
 {
-    // add your code 
+    // source has more or equal amount to tr_amount
+    if (tr_amount > source.money){
+        cout << "Sorry, you don't have enough money in the account to transfer" << tr_amount << endl;
+        return;
+    }
+    source.money  -= tr_amount; // withdraw tr_amount from source
+    (*this).money += tr_amount;        // deposit tr_amount into money of the calling Account object 
 }
 
+//non-member functions - you can only access public members
 bool operator<(const Account &left, const Account &right){
-
+    return (right.get_money() > left.get_money() && !(right.get_money() == left.get_money()));  
 }
 bool operator==(const Account &left, const Account &right){
-
+    return left.get_money() == right.get_money();
 }
-ostream & operator<<(ostream &out, const Money &m){
-    
+ostream & operator<<(ostream &out, const Account &acct){
+    out << "Account " << acct.get_id() << " has " << acct.get_money() << " in it.";
+    return out;
 }
 

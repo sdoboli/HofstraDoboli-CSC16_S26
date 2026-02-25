@@ -26,7 +26,7 @@ Money m1(10,5);
 Money m2(m1);  (m2 to contain 10 dollars and 5 cents)
 */
 Money::Money(const Money &other){
-    cout << "Copy Money constructor\n";
+    //cout << "Copy Money constructor\n";
     dollars = other.dollars;
     cents   = other.cents;
 }
@@ -71,10 +71,10 @@ void Money::add(int add_dollars, int add_cents)
     assert(add_dollars >= 0);
     assert(add_cents >= 0);
 
-    cents += add_cents;    // cents = 110
+    cents   += add_cents;    // cents = 110
     dollars += add_dollars; // dollars = 8 
 
-    if (cents > 100){ // determine how many dollars (multiples of 100 cents) are in cents
+    if (cents >= 100){ // determine how many dollars (multiples of 100 cents) are in cents
         int new_dollars = cents / 100; // cents = 110, new_dollars = 110/100 = 1         
         int new_cents   = cents % 100; // new_cents = 10
 
@@ -106,13 +106,15 @@ void Money::subtract(int sub_dollars, int sub_cents){
     assert(sub_cents >= 0 && sub_cents < 100);
 
     int this_cents = (*this).get_total_cents();
-    int sub_total_cents = sub_dollars * 100 + cents;
+    int sub_total_cents = sub_dollars * 100 + sub_cents;
 
     assert(this_cents >= sub_total_cents);
 
     this_cents -= sub_total_cents;
+   
     dollars = this_cents / 100;
     cents   = this_cents % 100;
+    //cout << this_cents << ' ' << dollars << ' ' << cents << endl;
 }
 
 // subtract the Money amount from the calling object if they are enough
