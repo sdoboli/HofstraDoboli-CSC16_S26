@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
     // Declare and initialize C-style strings
-    char first[20] = "Hello";
+    char first[20] = "Hello"; // strlen(first) = 5 counts characters in the string without '/0'
     char second[20] = "World";
     char combined[50];
 
@@ -25,10 +25,19 @@ int main() {
 
     // Comparison
     cout << "Comparing first and second: ";
-    if (strcmp(first, second) == 0) {
+    int compare_result = strcmp("Alex", "Alexa");
+    if (compare_result == 0) { 
+        // do not compare them (first == second) - this compares the addresses of 
+        // the two arrays, not their contents
+        // strcmp compares two strings character by character and returns 
+        // 0 if they are equal, 
+        // a negative value if the first string is less than the second, 
+        // and a positive value if the first string is greater than the second.
         cout << "Strings are equal\n";
+    } else if (compare_result < 0) {
+        cout << "First string is less than second " << compare_result << endl;
     } else {
-        cout << "Strings are different\n";
+        cout << "First string is greater than second " << compare_result << endl;
     }
 
     // Input (single word only)

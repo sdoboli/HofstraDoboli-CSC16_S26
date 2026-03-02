@@ -4,6 +4,10 @@ using namespace std;
 
 int main() {
     // Declare and initialize string objects
+
+    string name1 = "";
+    //cout << "Name: " << name1.at(0) << endl;
+
     string first = "Hello";
     string second = "World";
 
