@@ -15,6 +15,11 @@ int main() {
         {40, 50, 60}
     };
 
+    for (int r = 0; r < ROWS; r++){
+        for (int c = 0; c < COLS; c++){
+        }
+    }
+
     cout << "=== In main() ===\n\n";
 
     // Print values and addresses in main
