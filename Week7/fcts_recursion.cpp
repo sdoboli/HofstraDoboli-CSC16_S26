@@ -7,18 +7,41 @@
 using namespace std;
 #include "header.h"
 
+/*
+    int int2bit(int n)
+    Goal: Write a recursive function that returns the 
+    number of bits needed to represent an integer in binary.
+    Input: an integer
+    Output: the number of bits needed to represent the integer in binary
+    Example: int2bit(7) = 3 bits (111)
+             int2bit(0) = 1 bit (0), int2bit(1) = 1 bit (1)
+             int2bit(15) = 4 bits (1111)
+
+             Original problem: 
+             Solution(NUM_BITS(n))  = Solution (F'(n' < n)) + additional steps
+             F' = NUM_BITS([n/2])
+             Additional step = add 1 bit to Solution(F')
 
 
+    Processing: // ADD YOUR STEPS HERE
+        
+        Base case: n < 2 (either 0 or 1) solution is 1 bit
+        Recursive case:
+
+    Preconditions: None
+    Postconditions: None
+*/
 int int2bit(int n)
 {
     cout << "BEGIN int2bit(" << n << ")" << endl;
-     if (n < 2)
-       return 1;
+    if (n < 2)
+       return 1; // 0 or 1 is represented with 1 bit
      else
 	{
-       int bits = int2bit(n/2)+1;
-       cout << "END int2bit(" << n << ") = " << bits << endl;
-       return bits;
+       int k_bits = int2bit(n/2); // F' problem
+       k_bits =  k_bits + 1; // additional step
+       cout << "END int2bit(" << n << ") = " << k_bits << endl;
+       return k_bits;
 	}
 }
 
@@ -36,19 +59,36 @@ int int2bit(int n)
         is_palindrome("ab")        --> false
         is_palindrome("abc")       --> false
 
+
     Input: a string
     Output: bool - true if the string is a palindrome, false otherwise
     Processing: // ADD YOUR STEPS HERE
         
-        Base case:
+        Base case:  if string is empty or has one character,
+                    it is a palindrome, return true
         Recursive case:
-
+        IS_Palindrome (F) = If IS_PALINDROME(F') and  
+                            additional steps
+        Additional steps: 
+            check if first and last characters of F are equal
+            if they are not -> not a palindrome
+        F' = the string in between the first and last
+            characters of F
     Preconditions: None
     Postconditions: None
 */
 bool is_palindrome(string str) // objects are passed by value
 {
-    
+    if (str.length() <= 1) // base case
+        return true; // empty string or one character is a palindrome
+    // additional step
+    if (str.at(0) != str.at(str.length()-1))
+        return false;
+    else{
+        // new_str is F' problem
+        string new_str = str.substr(1, str.length()-2); // F' problem
+        return is_palindrome(new_str); 
+    }
 }
 
 /*
@@ -59,8 +99,10 @@ bool is_palindrome(string str) // objects are passed by value
 	Use cases: 
 		to_lower("Today")      --> today
 	
-    You can use the tolower() function  in the standard library to convert one 
-    character to upper case letter. Look for its usage in the C++ reference 
+    You can use the tolower() function  
+    in the standard library to convert one 
+    character to upper case letter. 
+    Look for its usage in the C++ reference 
     page on-line:  int tolower ( int c );    
     input is a character, output is the lower case letter if input 
     is a lower case letter.
@@ -77,7 +119,17 @@ bool is_palindrome(string str) // objects are passed by value
 */
 string to_lower(string str)
 {
-
+    if (str.length() == 0)
+        return str; // base case
+    
+    string remaining_str = str.substr(1); // F' problem
+    // str.substr(1) returns a substring starting 
+    // from index 1 to the end of the string
+    string sol_f1 = to_lower(remaining_str); // recursive call
+    string sol_f = (char)tolower(str.at(0)) + sol_f1; // additional step
+    // Additional step = tolower(str.at(0)) converts the first character 
+    // of str to lower case
+    return sol_f;
 }
 /*
     string replace(string s, char orig, char repl)
