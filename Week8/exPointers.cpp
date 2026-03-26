@@ -5,7 +5,7 @@ int *f(int size, int initial_val);
 
 int main()
 {
- 	int i =10; 
+ 	int    i =10; 
   double j = 20;
   cout << "i = "    << i << " The stack address of i is " << &i << endl;
  	cout << "The size of i in bytes is " << sizeof(i) << endl;
@@ -23,18 +23,18 @@ int main()
  	
   char *ptrByte = (char *)ptrInt1;
    
- 	cout << "The value of the pointer is "                        << ptrInt1 << endl; // expect a memory address
-   cout << "The value pointed by the pointer is "                 << *ptrInt1 << endl; // expect an integer value
- 	cout << "The stack memory address of the pointer is "         << &ptrInt1 << endl; // expect a memory address
+ 	cout << "The value of the pointer is "   << ptrInt1 << endl; // expect a memory address
+  cout << "The value pointed by the pointer is "  << *ptrInt1 << endl; // expect an integer value
+ 	cout << "The stack memory address where the pointer is stored " << &ptrInt1 << endl; // expect a memory address
  	cout << "The size of the pointer in memory (bytes) is " << sizeof(ptrInt1) << endl;
  	
     // the memory addresses where i's all 4 bytes are stored
    cout << hex << "\ni in hexa " << i << " i in dec " << dec << i << endl;
    cout << dec << "memory content of the address of i (*ptrInt1)= " << *ptrInt1 << endl;
 
-   double *ptrDouble = &j;
-   cout << "The value of the pointer is " << ptrDouble << endl; // expect a memory address
-  	cout << "The value pointed by the pointer is " << *ptrDouble << endl; // expect an integer value
+  double *ptrDouble = &j;
+  cout << "The value of the pointer is " << ptrDouble << endl; // expect a memory address
+  cout << "The value pointed by the pointer is " << *ptrDouble << endl; // expect an integer value
  	cout << "The memory address of the pointer is " << &ptrDouble << endl; // expect a memory address
  	cout << "The size of the pointer in memory (bytes) is " << sizeof(ptrDouble) << endl;
 

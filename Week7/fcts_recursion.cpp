@@ -158,7 +158,7 @@ string to_lower(string str)
 */
 string replace(string str, char orig, char repl)
 {
-
+    return "";
 }
 
 /*
