@@ -47,8 +47,8 @@ int main()
     cout << "The value of the pointer is " << ptrInt2 << endl; // expect a memory address different than the ones before
  	   	 		 	   	  	  		  	   	  		  	 	   // because it is a memory address in dynamic memory not on the stack
   	cout << "The value pointed by the pointer is " << *ptrInt2 << endl; // expect an integer value
- 	cout << "The memory address of the pointer is " << &ptrInt2 << endl; // expect a memory address
- 	cout << "The size of the pointer in memory (bytes) is " << sizeof(ptrInt2) << endl;
+ 	  cout << "The memory address of the pointer is " << &ptrInt2 << endl; // expect a memory address
+ 	  cout << "The size of the pointer in memory (bytes) is " << sizeof(ptrInt2) << endl;
 
     cout << "ptrInt1 = " << ptrInt1 << " ptrInt2 = " << ptrInt2 << " ptrDouble = " << ptrDouble << endl;
     // ptrInt1 points to i, ptrInt2 points to an int on the heap
