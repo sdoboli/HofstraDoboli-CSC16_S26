@@ -21,17 +21,22 @@ public:
 
 class Playlist {
 private:
-    Song* songs;
-    int size;
+    Song* songs; // dynamic array of Song objects
+    int size; // number of songs currently in the playlist
+    int capacity; // maximum number of songs the playlist can hold before needing to resize
 
 public:
-    Playlist(int s = 0);
-    Playlist(const Playlist& other); 
-    Playlist& operator=(const Playlist& other);
-    ~Playlist();
+    Playlist(int s = 0); // capacity = default = 20 
+    Playlist(const Playlist& other); // copy constructor
+    Playlist& operator=(const Playlist& other); // assignment operator
+    ~Playlist(); // destructor to free (deallocate) dynamic memory for the list of songs
 
-    void setSong(int index, const Song& s);
-    void print() const;
+    void addSong(int index, const Song& s); // adds a song to the playlist at the specified index
+    void addSongEnd(const Song& s); // adds a song to the end of the playlist
+    void removeSong(int index); // removes a song from the playlist -
+    //  all songs after the removed song should be shifted left to fill the gap
+    void print() const; // prints the playlist in the format: "Title by Artist (Duration seconds)"
+    void resize(int new_capacity); // helper function to resize the songs array when needed
 };
 
 #endif
